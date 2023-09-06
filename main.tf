@@ -9,6 +9,14 @@ terraform {
 provider "azurerm" {
   features {}
 }
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "Gk-rg"
+    storage_account_name = "strgtesinggk"
+    container_name       = "testcont2"
+    key                  = "prod.terraform.tfstate"
+  }
+}
 
 resource "azurerm_app_service_plan" "rg" {
   name                = "dotnetappservic1eplan"
